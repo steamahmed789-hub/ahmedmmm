@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detergent Warehouse Pro — نظام إدارة المخازن والمبيعات الاحترافي لمخازن المنظفات، نقاط البيع، الفواتير، والأرباح.">
+    <meta name="theme-color" content="#2563eb">
+    <title>Detergent Warehouse Pro — نظام إدارة المخازن والمبيعات الاحترافي</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* ============================================
+           Detergent Warehouse Pro — Landing Page
+           Modern RTL · Tech Blue + Emerald
+        ============================================ */
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #60a5fa;
+            --secondary: #10b981;
+            --secondary-dark: #059669;
+            --secondary-light: #34d399;
+            --bg: #f8fafc;
+            --bg-alt: #ffffff;
+            --dark-1: #1e293b;
+            --dark-2: #0f172a;
+            --border: #e2e8f0;
+            --border-soft: #f1f5f9;
+            --text: #0f172a;
+            --text-soft: #334155;
+            --text-light: #64748b;
+            --amber: #f59e0b;
+            --purple: #a855f7;
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+            --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+            --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: rgba(37, 99, 235, 0.2); color: var(--text); }
+
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; }
+
+        /* ============ Layout ============ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ============ Navigation ============ */
+        .nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 100;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 var(--border), 0 4px 20px -8px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .nav.scrolled .nav-brand { color: var(--text); }
+
+        .nav-brand-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 14px -4px rgba(37, 99, 235, 0.5);
+        }
+
+        .nav-cta {
+            padding: 0.6rem 1.25rem;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.25s ease;
+        }
+
+        .nav.scrolled .nav-cta {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.5);
+        }
+
+        /* ============ Hero ============ */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 9rem 1.5rem 9rem;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(ellipse at 20% 25%, rgba(37, 99, 235, 0.22) 0%, transparent 45%),
+                radial-gradient(ellipse at 80% 75%, rgba(16, 185, 129, 0.14) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(ellipse 70% 60% at center, black 30%, transparent 85%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at center, black 30%, transparent 85%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Floating icons */
+        .float-icon {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .float-icon.f1 { top: 14%; right: 8%; font-size: 2.75rem; animation-delay: 0s; }
+        .float-icon.f2 { top: 22%; left: 10%; font-size: 2.25rem; animation-delay: 1.2s; }
+        .float-icon.f3 { bottom: 18%; right: 12%; font-size: 3.5rem; animation-delay: 2.4s; }
+        .float-icon.f4 { top: 55%; left: 6%; font-size: 3rem; animation-delay: 0.6s; }
+        .float-icon.f5 { top: 38%; right: 18%; font-size: 1.75rem; animation-delay: 1.8s; }
+        .float-icon.f6 { bottom: 30%; left: 18%; font-size: 2rem; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-22px) rotate(6deg); }
+        }
+
+        /* Version badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 1.1rem;
+            background: rgba(16, 185, 129, 0.14);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.32);
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+            animation: pulse 2.2s infinite;
+        }
+
+        @keyframes pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
+            70%  { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Titles */
+        .hero-title {
+            font-size: clamp(2rem, 5.2vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.3;
+            margin: 1.75rem 0 1.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.72);
+            max-width: 720px;
+            margin: 0 auto;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1.1rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-stat i { color: var(--secondary-light); font-size: 1.1rem; }
+        .hero-stat span { font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); font-weight: 500; }
+
+        /* ============ Download Card ============ */
+        .download-section {
+            position: relative;
+            z-index: 10;
+            padding: 0 1.5rem;
+            margin-top: -5rem;
+        }
+
+        .download-card {
+            background: var(--bg-alt);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2.5rem 2.5rem;
+            box-shadow: var(--shadow-xl), 0 0 0 1px rgba(255, 255, 255, 0.4);
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .download-card::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.07) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .app-icon {
+            position: relative;
+            width: 96px;
+            height: 96px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.75rem;
+            margin: 0 auto 1.5rem;
+            box-shadow:
+                0 18px 40px -8px rgba(37, 99, 235, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+            z-index: 1;
+        }
+
+        .download-card h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-card .lead {
+            color: var(--text-light);
+            font-size: 0.98rem;
+            margin-bottom: 1.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Download button */
+        .download-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            box-shadow:
+                0 12px 28px -6px rgba(37, 99, 235, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+            transform: translateX(100%);
+            transition: transform 0.7s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 18px 40px -6px rgba(37, 99, 235, 0.65),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        .download-btn:hover::before {
+            transform: translateX(-100%);
+        }
+
+        .download-btn:active { transform: translateY(-1px); }
+
+        .download-btn i { font-size: 1.15rem; }
+
+        /* Trust badges */
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1rem;
+            background: #f1f5f9;
+            color: #475569;
+            border-radius: 999px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: all 0.25s ease;
+        }
+
+        .trust-badge:hover {
+            background: #ecfdf5;
+            color: #047857;
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .trust-badge i { color: var(--secondary); font-size: 0.95rem; }
+
+        /* ============ Sections ============ */
+        .section {
+            padding: 5.5rem 1.5rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            padding: 0.4rem 0.9rem;
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary);
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3.8vw, 2.4rem);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.3px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ============ Features ============ */
+        .features-section {
+            background:
+                radial-gradient(ellipse at top, rgba(37, 99, 235, 0.04) 0%, transparent 50%),
+                var(--bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            position: relative;
+            background: var(--bg-alt);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.75rem;
+            border: 1px solid var(--border);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+            border-bottom-left-radius: 100%;
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .feature-card:hover::before {
+            width: 170px;
+            height: 170px;
+        }
+
+        .feature-icon {
+            position: relative;
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.04) 100%);
+            color: var(--primary);
+            border: 1px solid rgba(37, 99, 235, 0.12);
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.04) 100%);
+            color: var(--secondary-dark);
+            border-color: rgba(16, 185, 129, 0.18);
+        }
+        .feature-card:nth-child(3) .feature-icon {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0.04) 100%);
+            color: #b45309;
+            border-color: rgba(245, 158, 11, 0.18);
+        }
+        .feature-card:nth-child(4) .feature-icon {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.04) 100%);
+            color: #7e22ce;
+            border-color: rgba(168, 85, 247, 0.18);
+        }
+
+        .feature-title {
+            position: relative;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-desc {
+            position: relative;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ============ Specs ============ */
+        .specs-section {
+            background: linear-gradient(180deg, var(--bg) 0%, #ffffff 100%);
+        }
+
+        .specs-card {
+            background: var(--bg-alt);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 2rem;
+            border: 1px solid var(--border);
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .specs-list { list-style: none; }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid var(--border-soft);
+            gap: 1rem;
+        }
+
+        .spec-item:last-child { border-bottom: none; }
+
+        .spec-label {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            color: var(--text-soft);
+            font-weight: 500;
+            font-size: 0.98rem;
+        }
+
+        .spec-label i {
+            color: var(--primary);
+            font-size: 1.1rem;
+            width: 22px;
+            text-align: center;
+        }
+
+        .spec-value {
+            color: var(--text);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .spec-value .pill {
+            display: inline-block;
+            padding: 0.25rem 0.65rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary-dark);
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        /* ============ Footer ============ */
+        .footer {
+            padding: 2rem 1.5rem;
+            background: var(--bg-alt);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.92rem;
+        }
+
+        .footer p {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer strong {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .footer .divider {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background: var(--border);
+            border-radius: 50%;
+            margin: 0 0.6rem;
+            vertical-align: middle;
+        }
+
+        /* ============ Animations ============ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-up { opacity: 1; transform: none; transition: none; }
+            .float-icon { animation: none; }
+            .badge .dot { animation: none; }
+        }
+
+        /* ============ Responsive ============ */
+        @media (max-width: 768px) {
+            .hero { padding: 7rem 1rem 7.5rem; }
+            .nav-brand { font-size: 1rem; }
+            .nav-cta { padding: 0.5rem 0.95rem; font-size: 0.82rem; }
+            .hero-stats { gap: 0.75rem; }
+            .hero-stat { padding: 0.5rem 0.9rem; font-size: 0.85rem; }
+            .section { padding: 3.5rem 1rem; }
+            .section-header { margin-bottom: 2.5rem; }
+            .download-section { margin-top: -4rem; padding: 0 1rem; }
+            .download-card { padding: 2.25rem 1.5rem 1.75rem; }
+            .app-icon { width: 84px; height: 84px; font-size: 2.4rem; }
+            .download-btn { font-size: 1.05rem; padding: 1.05rem 1.5rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .specs-card { padding: 0.5rem 1.25rem; }
+            .spec-item { flex-direction: column; align-items: flex-start; gap: 0.4rem; padding: 1rem 0; }
+            .spec-value { text-align: right; align-self: flex-end; }
+            .float-icon { display: none; }
+        }
+
+        @media (max-width: 420px) {
+            .trust-badges { gap: 0.5rem; }
+            .trust-badge { font-size: 0.78rem; padding: 0.45rem 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ Navigation ============ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <span class="nav-brand-icon"><i class="fa-solid fa-boxes-stacked"></i></span>
+                <span>Detergent Warehouse Pro</span>
+            </a>
+            <a href="#download" class="nav-cta">
+                <i class="fa-solid fa-download"></i>
+                <span style="margin-right: 0.4rem;">تحميل</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ============ Hero ============ -->
+    <header class="hero">
+        <i class="fa-solid fa-box float-icon f1"></i>
+        <i class="fa-solid fa-cart-shopping float-icon f2"></i>
+        <i class="fa-solid fa-warehouse float-icon f3"></i>
+        <i class="fa-solid fa-cash-register float-icon f4"></i>
+        <i class="fa-solid fa-chart-line float-icon f5"></i>
+        <i class="fa-solid fa-barcode float-icon f6"></i>
+
+        <div class="hero-content">
+            <div class="badge">
+                <span class="dot"></span>
+                <span>الإصدار الرسمي 1.0.0</span>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="highlight">Detergent Warehouse Pro</span>
+                <br>
+                نظام إدارة المخازن والمبيعات الاحترافي
+            </h1>
+
+            <p class="hero-subtitle">
+                الحل الشامل والذكي لإدارة مخازن المنظفات، نقاط البيع (POS)، الفواتير، وحساب الأرباح بدقة وسهولة.
+            </p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>أداء سريع وخفيف</span>
+                </div>
+                <div class="hero-stat">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>بيانات محلية آمنة</span>
+                </div>
+                <div class="hero-stat">
+                    <i class="fa-solid fa-language"></i>
+                    <span>دعم كامل للعربية</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ Download Card ============ -->
+    <section class="download-section" id="download">
+        <div class="download-card fade-up">
+            <div class="app-icon">
+                <i class="fa-solid fa-boxes-stacked"></i>
+            </div>
+
+            <h2>حمّل البرنامج الآن</h2>
+            <p class="lead">ابدأ في إدارة مخزنك خلال دقائق — بدون اشتراكات، بدون إنترنت</p>
+
+            <a href="https://drive.google.com/uc?export=download&id=1iE6utECA78rrdxjnHE3lI0VrLrD0QD5O"
+               class="download-btn"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="تحميل البرنامج الآن بصيغة exe">
+                <i class="fa-solid fa-download"></i>
+                <span>تحميل البرنامج الآن (.exe)</span>
+            </a>
+
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <i class="fa-brands fa-windows"></i>
+                    <span>متوافق مع Windows 10 / 11 (64-bit)</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>ملف تنفيذي مباشر (.exe) بدون تثبيت معقد</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>آمن ومفحوص 100% ضد الفيروسات</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Features ============ -->
+    <section class="section features-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-eyebrow">المميزات</span>
+                <h2 class="section-title">مميزات قوية تناسب عملك</h2>
+                <p class="section-subtitle">كل ما تحتاجه لإدارة مخزنك ومنظفاتك بكفاءة عالية، في برنامج واحد متكامل</p>
+            </div>
+
+            <div class="features-grid">
+                <article class="feature-card fade-up">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-cash-register"></i>
+                    </div>
+                    <h3 class="feature-title">نظام كاشير ومبيعات سريع</h3>
+                    <p class="feature-desc">دعم كامل لفواتير POS، الخصومات، والضرائب، وطباعة/تصدير الفواتير بأسلوب احترافي.</p>
+                </article>
+
+                <article class="feature-card fade-up">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-barcode"></i>
+                    </div>
+                    <h3 class="feature-title">إدارة المخزون والباركود</h3>
+                    <p class="feature-desc">قراءة وتوليد الباركود تلقائياً، وتنبيهات فورية عند انخفاض المخزون أو نفاده.</p>
+                </article>
+
+                <article class="feature-card fade-up">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="feature-title">تقارير وأرباح مفصلة</h3>
+                    <p class="feature-desc">لوحة تحكم رسمية لمتابعة حركة المبيعات اليومية والشهرية، والأرباح، وأكثر المنتجات مبيعاً.</p>
+                </article>
+
+                <article class="feature-card fade-up">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="feature-title">نسخ احتياطي للبيانات</h3>
+                    <p class="feature-desc">إمكانية حفظ واسترجاع قاعدة البيانات بضغطة زر واحدة لحماية أرقامك وحساباتك.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ System Requirements ============ -->
+    <section class="section specs-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-eyebrow">المتطلبات</span>
+                <h2 class="section-title">متطلبات النظام</h2>
+                <p class="section-subtitle">برنامج خفيف لا يحتاج إلى جهاز قوي — يعمل على أي كمبيوتر حديث</p>
+            </div>
+
+            <div class="specs-card fade-up">
+                <ul class="specs-list">
+                    <li class="spec-item">
+                        <div class="spec-label">
+                            <i class="fa-brands fa-windows"></i>
+                            <span>نظام التشغيل</span>
+                        </div>
+                        <div class="spec-value">Windows 10 / 11</div>
+                    </li>
+                    <li class="spec-item">
+                        <div class="spec-label">
+                            <i class="fa-solid fa-hard-drive"></i>
+                            <span>حجم الملف</span>
+                        </div>
+                        <div class="spec-value">~20-30 MB</div>
+                    </li>
+                    <li class="spec-item">
+                        <div class="spec-label">
+                            <i class="fa-solid fa-server"></i>
+                            <span>قاعدة البيانات</span>
+                        </div>
+                        <div class="spec-value">
+                            <span class="pill">Offline</span>
+                            Local SQLite (سريعة ومحلية)
+                        </div>
+                    </li>
+                    <li class="spec-item">
+                        <div class="spec-label">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span>البنية المطلوبة</span>
+                        </div>
+                        <div class="spec-value">64-bit</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Footer ============ -->
+    <footer class="footer">
+        <p>
+            جميع الحقوق محفوظة © 2026 <strong>Detergent Warehouse Pro</strong>
+            <span class="divider"></span>
+            صُنع بحب لمخازن المنظفات العربية
+        </p>
+    </footer>
+
+    <script>
+        // Smooth nav background on scroll
+        const nav = document.getElementById('nav');
+        const handleScroll = () => {
+            if (window.scrollY > 40) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
+        // Intersection Observer for fade-up animations
+        const fadeObserver = new IntersectionObserver((entries) => {
+            let delay = 0;
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                    delay += 100;
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach((el) => fadeObserver.observe(el));
+
+        // Smooth scroll for nav anchor
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener('click', (e) => {
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Download click feedback (lightweight analytics hook)
+        document.querySelectorAll('a[href*="drive.google.com"]').forEach((link) => {
+            link.addEventListener('click', () => {
+                const btn = link.querySelector('span');
+                if (btn) {
+                    const original = btn.textContent;
+                    btn.textContent = 'جاري التحميل...';
+                    setTimeout(() => { btn.textContent = original; }, 2500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
